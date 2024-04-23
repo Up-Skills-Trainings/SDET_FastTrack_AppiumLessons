@@ -14,15 +14,21 @@ public class AL02_LoginTest {
 
         AppiumDriver driver = Driver.getDriver();
 
+        Thread.sleep(3000);
       //  WebElement userNameBox = driver.findElement(By.xpath("//android.widget.EditText[@content-desc=\"test-Username\"]"));
-        WebElement userNameBox = driver.findElement(By.xpath("//*[@text='Username']")); // we use here text attribute
-       // WebElement userNameBox = driver.findElement(new AppiumBy.ByAccessibilityId("test-Username"));
+      //  WebElement userNameBox = driver.findElement(By.xpath("//*[@text='Username']")); // we use here text attribute
+        WebElement userNameBox = driver.findElement(new AppiumBy.ByAccessibilityId("test-Username"));
         WebElement passwordBox = driver.findElement(new AppiumBy.ByAccessibilityId("test-Password"));
         WebElement loginButton = driver.findElement(new AppiumBy.ByAccessibilityId("test-LOGIN"));
+
+        System.out.println(userNameBox.getAttribute("text"));
+
 
         userNameBox.sendKeys("standard_user");
         passwordBox.sendKeys("secret_sauce");
         loginButton.click();
+
+
 
         Thread.sleep(3000);
 
@@ -42,4 +48,12 @@ public class AL02_LoginTest {
 
         Driver.closeDriver();
     }
+
+    /*
+    HW:
+    implement Conf.Reader and Conf.prop approach
+    then login to application and click on a product and verify
+
+     */
+
 }
