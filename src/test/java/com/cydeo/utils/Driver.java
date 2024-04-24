@@ -6,6 +6,7 @@ import io.appium.java_client.android.options.UiAutomator2Options;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.Objects;
 
 public class Driver {
@@ -35,6 +36,7 @@ public class Driver {
                         throw new RuntimeException(e);
                     }
                     driver = new AndroidDriver(url,options);
+                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
                     break;
                 case "remote-android-sauceApp":
 

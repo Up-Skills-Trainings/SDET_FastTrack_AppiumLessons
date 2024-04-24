@@ -5,6 +5,7 @@ import com.cydeo.pages.ProductPage;
 import com.cydeo.utils.Driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -31,9 +32,16 @@ public class AL03_ProductTest {
 
         productPage.firstProduct.click();
 
+        Assertions.assertEquals("REMOVE", productPage.removeElement.getAttribute("text"));
 
+        Assertions.assertEquals("1",productPage.numberOfProducts.getAttribute("text"));
 
+        Driver.closeDriver();
 
+        /*
+        HW: Add a product to cart, then navigate to Cart and follow order instructions and make an order
+            Then verify --
+         */
 
     }
 
