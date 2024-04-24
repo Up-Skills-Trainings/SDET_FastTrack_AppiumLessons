@@ -38,7 +38,7 @@ public class AL01_ConnectionTest {
     @Test
     public void testWithSingletonDriver(){
 
-        AppiumDriver driver = Driver.getDriver();
+        AppiumDriver driver = Driver.getDriver("local-sauceApp");
 
         System.out.println(((AndroidDriver)driver).getDeviceTime()); // since we created our driver as AppiumDriver which is an interface we need to cast driver object to use some of the methods defined only in the Android class
 

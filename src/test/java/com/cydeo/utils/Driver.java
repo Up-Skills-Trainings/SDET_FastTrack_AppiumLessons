@@ -17,20 +17,32 @@ public class Driver {
 
     }
 
-    public static AppiumDriver getDriver(){
+    public static AppiumDriver getDriver(String platformType){
+        String platform = ConfigurationReader.getProperty(platformType);
 
         String testDirectory = System.getProperty("user.dir");
 
         if(Objects.isNull(driver)){
-            options.setApp(testDirectory + "/sauceLab.apk");
-            options.setAppActivity("com.swaglabsmobileapp.MainActivity");
-            options.setAppPackage("com.swaglabsmobileapp");
-            try {
-                url = new URL("http://localhost:4723");
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
+
+            switch (platform){
+                case "local-android-sauceApp":
+                    options.setApp(testDirectory + "/sauceLab.apk");
+                    options.setAppActivity("com.swaglabsmobileapp.MainActivity");
+                    options.setAppPackage("com.swaglabsmobileapp");
+                    try {
+                        url = new URL("http://localhost:4723");
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    }
+                    driver = new AndroidDriver(url,options);
+                    break;
+                case "remote-android-sauceApp":
+
+
+                    break;
+
             }
-            driver = new AndroidDriver(url,options);
+
         }
         return driver;
     }

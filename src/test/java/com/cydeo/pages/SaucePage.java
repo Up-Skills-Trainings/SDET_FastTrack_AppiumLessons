@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class SaucePage {
 
     public SaucePage(){
-        PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver()),this);
+        PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver("local-sauceApp")),this);
     }
 
     @AndroidFindBy(xpath = "//*[@text='Username']")

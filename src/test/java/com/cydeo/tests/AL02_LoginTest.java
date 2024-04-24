@@ -12,7 +12,7 @@ public class AL02_LoginTest {
     @Test
     public void login() throws InterruptedException {
 
-        AppiumDriver driver = Driver.getDriver();
+        AppiumDriver driver = Driver.getDriver("local-sauceApp");
 
         Thread.sleep(3000);
       //  WebElement userNameBox = driver.findElement(By.xpath("//android.widget.EditText[@content-desc=\"test-Username\"]"));
