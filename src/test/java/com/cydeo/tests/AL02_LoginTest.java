@@ -29,7 +29,6 @@ public class AL02_LoginTest {
         loginButton.click();
 
 
-
         Thread.sleep(3000);
 
         Driver.closeDriver();
