@@ -1,16 +1,9 @@
 package com.cydeo.pages;
 
-import com.cydeo.utils.Driver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
-public class SaucePage {
-
-    public SaucePage(){
-        PageFactory.initElements(new AppiumFieldDecorator(Driver.getDriver("local-sauceApp")),this);
-    }
+public class LoginPage extends BasePage{
 
     @AndroidFindBy(xpath = "//*[@text='Username']")
     public WebElement userName;

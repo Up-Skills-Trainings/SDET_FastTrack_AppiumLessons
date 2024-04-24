@@ -1,11 +1,10 @@
 package com.cydeo.tests;
 
-import com.cydeo.pages.SaucePage;
+import com.cydeo.pages.LoginPage;
 import com.cydeo.utils.Driver;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class AL02_LoginTest {
@@ -37,7 +36,7 @@ public class AL02_LoginTest {
     @Test
     public void loginWithPOM() throws InterruptedException {
 
-        SaucePage page = new SaucePage();
+        LoginPage page = new LoginPage();
 
         page.userName.sendKeys("standard_user");
         page.password.sendKeys("secret_sauce");
