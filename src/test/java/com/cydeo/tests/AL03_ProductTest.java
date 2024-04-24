@@ -3,7 +3,9 @@ package com.cydeo.tests;
 import com.cydeo.pages.LoginPage;
 import com.cydeo.pages.ProductPage;
 import com.cydeo.utils.Driver;
+import com.cydeo.utils.MobilUtils;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +17,7 @@ import java.time.Duration;
 public class AL03_ProductTest {
 
     @Test
-    public void productTest(){
+    public void productTest() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage();
         loginPage.login();
@@ -36,11 +38,18 @@ public class AL03_ProductTest {
 
         Assertions.assertEquals("1",productPage.numberOfProducts.getAttribute("text"));
 
+        // MobilUtils.scrollIntoView("local-sauceApp","Terms of Service | Privacy Policy");
+
+        MobilUtils.scrollToEnd("local-sauceApp");
+
+        Thread.sleep(1000);
+
         Driver.closeDriver();
 
         /*
         HW: Add a product to cart, then navigate to Cart and follow order instructions and make an order
-            Then verify --
+            Then verify --  "THANK YOU FOR YOU ORDER"
+            How to scroll down with Appium
          */
 
     }
