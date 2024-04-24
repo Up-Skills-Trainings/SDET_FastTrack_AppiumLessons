@@ -36,7 +36,7 @@ public class AL02_LoginTest {
     @Test
     public void loginWithPOM() throws InterruptedException {
 
-        LoginPage page = new LoginPage();
+        LoginPage page = new LoginPage("local");
 
         page.userName.sendKeys("standard_user");
         page.password.sendKeys("secret_sauce");

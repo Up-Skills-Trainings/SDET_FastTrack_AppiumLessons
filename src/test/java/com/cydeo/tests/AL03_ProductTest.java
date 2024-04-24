@@ -19,7 +19,7 @@ public class AL03_ProductTest {
     @Test
     public void productTest() throws InterruptedException {
 
-        LoginPage loginPage = new LoginPage();
+        LoginPage loginPage = new LoginPage("local");
         loginPage.login();
 
 
@@ -28,7 +28,7 @@ public class AL03_ProductTest {
          */
         WebDriverWait wait = new WebDriverWait(Driver.getDriver("local-sauceApp"), Duration.ofSeconds(10));
         // click the product to add to cart
-        ProductPage productPage = new ProductPage();
+        ProductPage productPage = new ProductPage("local");
 
         wait.until(ExpectedConditions.visibilityOf(productPage.firstProduct));
 

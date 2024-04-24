@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage{
 
+    public LoginPage(String env) {
+        super(env);
+    }
     @AndroidFindBy(xpath = "//*[@text='Username']")
     public WebElement userName;
 
@@ -14,6 +17,8 @@ public class LoginPage extends BasePage{
 
     @AndroidFindBy(accessibility = "test-LOGIN")
     public WebElement loginButton;
+
+
 
     public void login(){
         userName.sendKeys(ConfigurationReader.getProperty("userName"));
