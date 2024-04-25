@@ -3,6 +3,7 @@ package com.cydeo.utils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.MutableCapabilities;
 
 import java.net.MalformedURLException;
@@ -67,7 +68,27 @@ public class Driver {
                     }
                     driver = new AndroidDriver(url, caps);
                     break;
+                case "remoteIOS-sauceApp":
+                    MutableCapabilities capsI = new MutableCapabilities();
+                    capsI.setCapability("platformName", "iOS");
+                    capsI.setCapability("appium:app", "https://github.com/saucelabs/sample-app-mobile/releases/download/2.7.1/iOS.RealDevice.SauceLabs.Mobile.Sample.app.2.7.1.ipa");  // The filename of the mobile app
+                    capsI.setCapability("appium:deviceName", "iPhone.*");
+                    capsI.setCapability("appium:automationName", "XCUITest");
+                    MutableCapabilities sauceOptionsI = new MutableCapabilities();
 
+                    sauceOptionsI.setCapability("username", "oauth-testermichael77-6fc8b");
+                    sauceOptionsI.setCapability("accessKey", "54923638-aed6-4432-8e2e-d8b72784bc1b");
+                    sauceOptionsI.setCapability("build", "Test123");
+                    sauceOptionsI.setCapability("name", "IOS_Test");
+                    sauceOptionsI.setCapability("deviceOrientation", "PORTRAIT");
+                    capsI.setCapability("sauce:options", sauceOptionsI);
+                    try {
+                        url = new URL("https://ondemand.us-west-1.saucelabs.com:443/wd/hub");
+                    } catch (MalformedURLException e) {
+                        throw new RuntimeException(e);
+                    }
+                   driver = new IOSDriver(url, capsI);
+                    break;
             }
 
         }

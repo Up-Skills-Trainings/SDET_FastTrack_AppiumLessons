@@ -9,7 +9,7 @@ public class LoginPage extends BasePage{
     public LoginPage(String env) {
         super(env);
     }
-    @AndroidFindBy(xpath = "//*[@text='Username']")
+    @AndroidFindBy(accessibility = "test-Username")
     public WebElement userName;
 
     @AndroidFindBy(accessibility = "test-Password")
